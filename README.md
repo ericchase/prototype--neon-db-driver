@@ -9,7 +9,7 @@ quick start with local database
 ```
 bun i
 bun run build
-bun run db-up
+bun run db-up          # make sure docker desktop is running
 bun run serve
 ```
 

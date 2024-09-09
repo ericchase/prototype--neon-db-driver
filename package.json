@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@types/bun": "^1.1.8",
+    "@types/bun": "^1.1.9",
     "@types/node": "^22.5.4",
     "node-html-parser": "^6.1.13",
     "prettier": "^3.3.3"
@@ -14,9 +14,5 @@
     "db-down": "bun ./tools/docker-db.ts stop",
     "format-debug": "prettier . --debug-check",
     "format": "prettier . --write"
-  },
-  "dependencies": {
-    "@neondatabase/serverless": "^0.9.5",
-    "pg": "^8.12.0"
   }
 }
