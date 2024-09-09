@@ -9,7 +9,7 @@
     "all": "bun ./tools/all.ts",
     "build": "bun ./tools/build.ts",
     "dev": "bun ./tools/dev.ts",
-    "server": "bun ./tools/server.ts",
+    "serve": "bun ./tools/serve.ts",
     "db-up": "bun ./tools/docker-db.ts start",
     "db-down": "bun ./tools/docker-db.ts stop",
     "format-debug": "prettier . --debug-check",

@@ -5,6 +5,7 @@ import { ConsoleError } from './lib/ericchase/Utility/Console.js';
 //
 // Postgres Queries
 
+// const db_query = DatabaseDriver.getNeon(<insert a valid connection string>);
 const db_query = DatabaseDriver.getLocalhost();
 
 async function CreateTable(name: string): Promise<void> {
