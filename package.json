@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@types/bun": "^1.1.8",
+    "@types/node": "^22.5.4",
+    "node-html-parser": "^6.1.13",
+    "prettier": "^3.3.3"
+  },
+  "scripts": {
+    "all": "bun ./tools/all.ts",
+    "build": "bun ./tools/build.ts",
+    "dev": "bun ./tools/dev.ts",
+    "server": "bun ./tools/server.ts",
+    "db-up": "bun ./tools/docker-db.ts start",
+    "db-down": "bun ./tools/docker-db.ts stop",
+    "format-debug": "prettier . --debug-check",
+    "format": "prettier . --write"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.5",
+    "pg": "^8.12.0"
+  }
+}

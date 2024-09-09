@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "bun ./tools/dev.ts",
+    "start": "bun ./tools/start.ts",
+    "format-debug": "prettier . --debug-check",
+    "format": "prettier . --write"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.5",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.8",
+    "prettier": "^3.3.3"
+  }
+}
