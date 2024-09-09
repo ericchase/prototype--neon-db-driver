@@ -49,7 +49,7 @@ const toBundleList = ['**/*.ts'];
 const toBundle = new GlobManager().scan(sourceDir, ...toBundleList);
 // toCopy.update(
 await bundle({
-  externalImports: ['*.bundle.js'],
+  externalImports: ['*.module.js'],
   outDir: buildDir,
   toBundle,
   toExclude,

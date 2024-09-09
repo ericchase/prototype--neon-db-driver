@@ -1,4 +1,4 @@
-import { DatabaseDriver } from './database-drivers/dbdriver.bundle.js';
+import { DatabaseDriver } from './database-drivers/dbdriver.module.js';
 import { ConsoleError } from './lib/ericchase/Utility/Console.js';
 
 //                                                                          \\
