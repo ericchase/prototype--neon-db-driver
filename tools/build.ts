@@ -15,10 +15,7 @@ await CleanDirectory(buildDir);
 await CleanDirectory(tempDir);
 
 const toCopy = new GlobManager().scan(sourceDir, '**/*');
-const toExclude = new GlobManager() //
-  .scan(sourceDir, '@types/**/*')
-  .scan(sourceDir, 'components/**/*.html')
-  .scan(sourceDir, 'lib/**/*');
+const toExclude = new GlobManager().scan(sourceDir, '@types/**/*', 'components/**/*.html', 'lib/**/*');
 
 // Process Components
 const customComponentPreprocessor = new CustomComponentPreprocessor();
@@ -47,14 +44,12 @@ for (const [tag, count] of customComponentPreprocessor.componentUsageCount) {
 // Bundle
 const toBundleList = ['**/*.ts'];
 const toBundle = new GlobManager().scan(sourceDir, ...toBundleList);
-// toCopy.update(
 await bundle({
   externalImports: ['*.module.js'],
   outDir: buildDir,
   toBundle,
   toExclude,
 });
-// );
 toExclude.scan(sourceDir, ...toBundleList);
 
 // // Compile
