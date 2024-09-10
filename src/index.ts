@@ -1,5 +1,6 @@
 import { DatabaseDriver } from './database-drivers/dbdriver.module.js';
 import { ConsoleError } from './lib/ericchase/Utility/Console.js';
+import { NodeRef } from './lib/ericchase/Web API/Node_Utility.js';
 
 //                                                                          \\
 //
@@ -50,11 +51,9 @@ async function EnsureTableExists(name: string): Promise<boolean> {
 //                                                                          \\
 
 class Page {
-  divMessages: Element;
+  divMessages: HTMLDivElement;
   constructor() {
-    const divMessages = document.querySelector('#messages');
-    if (!divMessages) throw 'divMessages not initialized';
-    this.divMessages = divMessages;
+    this.divMessages = NodeRef(document.querySelector('#messages')).as(HTMLDivElement);
   }
   addMessage(text: string) {
     try {

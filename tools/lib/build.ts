@@ -33,35 +33,35 @@ export async function bundle({ externalImports = [], outDir = './temp', sourcema
   return toCopy;
 }
 
-// interface CompileParams {
-//   outDir?: string;
-//   sourcemapMode?: Parameters<typeof Bun.build>[0]['sourcemap'];
-//   toCompile: GlobManager;
-//   toExclude?: GlobManager;
-// }
-// export async function compile({ outDir = './temp', sourcemapMode = 'inline', toCompile, toExclude }: CompileParams) {
-//   const toCopy = new GlobManager();
-//   const excludePaths = new Set(toExclude?.paths ?? []);
-//
-//   const transpiler = new Bun.Transpiler({
-//     loader: 'tsx',
-//     minifyWhitespace: false,
-//     target: 'browser',
-//   });
-//
-//   for (const globGroup of toCompile.globGroups) {
-//     for (const pathGroup of globGroup.pathGroups) {
-//       if (!excludePaths.has(pathGroup.path)) {
-//         try {
-//           const output = await transpiler.transform(await Bun.file(pathGroup.path).text());
-//           await Bun.write(pathGroup.replaceBasedir(outDir).replaceExt('.js').path, output);
-//           toCopy.scan(outDir, pathGroup.replaceBasedir('').replaceExt('.js').path);
-//         } catch (error) {}
-//       }
-//     }
-//   }
-//   return toCopy;
-// }
+interface CompileParams {
+  outDir?: string;
+  sourcemapMode?: Parameters<typeof Bun.build>[0]['sourcemap'];
+  toCompile: GlobManager;
+  toExclude?: GlobManager;
+}
+export async function compile({ outDir = './temp', sourcemapMode = 'inline', toCompile, toExclude }: CompileParams) {
+  const toCopy = new GlobManager();
+  const excludePaths = new Set(toExclude?.paths ?? []);
+
+  const transpiler = new Bun.Transpiler({
+    loader: 'tsx',
+    minifyWhitespace: false,
+    target: 'browser',
+  });
+
+  for (const globGroup of toCompile.globGroups) {
+    for (const pathGroup of globGroup.pathGroups) {
+      if (!excludePaths.has(pathGroup.path)) {
+        try {
+          const output = await transpiler.transform(await Bun.file(pathGroup.path).text());
+          await Bun.write(pathGroup.replaceBasedir(outDir).replaceExt('.js').path, output);
+          toCopy.scan(outDir, pathGroup.replaceBasedir('').replaceExt('.js').path);
+        } catch (error) {}
+      }
+    }
+  }
+  return toCopy;
+}
 
 interface CopyParams {
   outDir?: string;
