@@ -15,7 +15,7 @@ await CleanDirectory(buildDir);
 await CleanDirectory(tempDir);
 
 const toCopy = new GlobManager().scan(sourceDir, '**/*');
-const toExclude = new GlobManager().scan(sourceDir, '@types/**/*', 'components/**/*.html', 'lib/**/*');
+const toExclude = new GlobManager().scan(sourceDir, 'components/**/*.html', 'lib/**/*');
 
 // Process Components
 const customComponentPreprocessor = new CustomComponentPreprocessor();
@@ -52,34 +52,6 @@ await bundle({
 });
 toExclude.scan(sourceDir, ...toBundleList);
 
-// // Compile
-// const toCompileList = ['**/*.ts'];
-// const toCompile = new GlobManager().scan(sourceDir, ...toCompileList);
-// // toCopy.update(
-// await compile({
-//   outDir: buildDir,
-//   toCompile,
-//   toExclude,
-// });
-// // );
-// toExclude.scan(sourceDir, ...toCompileList);
-
-// // Bundle/Compile Lib
-// const toCompileListLib = ['lib/**/*.ts'];
-// const toCompileLib = new GlobManager().scan(sourceDir, ...toCompileListLib);
-// // for (const path of Array.from(toCompileLib.paths)) {
-// //   const { mtimeMs } = await fs.promises.stat(path);
-// //   console.log(path);
-// //   console.log({ mtimeMs });
-// // }
-// // toCopy.update(
-// await compile({
-//   outDir: buildDir,
-//   toCompile: toCompileLib,
-// });
-// // );
-// toExclude.scan(sourceDir, ...toCompileListLib);
-
 // Exclude
 toExclude
   .scan(sourceDir, '**/*.ts') // exclude .ts files now that bundling is done
@@ -99,5 +71,3 @@ await copy({
 
 // Cleanup
 await DeleteDirectory(tempDir);
-
-console.log('---');

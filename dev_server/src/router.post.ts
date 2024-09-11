@@ -1,27 +1,38 @@
 import { query } from './db.js';
+import { ConsoleLog } from './lib/Console.js';
 
 export async function post(req: Request): Promise<void | Response> {
   const url = new URL(req.url);
   const pathname = decodeURIComponent(url.pathname);
-  console.log(`POST     ${pathname}`);
+  ConsoleLog(`POST     ${pathname}`);
 
-  // console.log(`HEADERS`);
+  // ConsoleLog(`HEADERS`);
   // for (const [k, v] of req.headers) {
-  //   console.log(`    ${k}: ${v}`);
+  //   ConsoleLog(`    ${k}: ${v}`);
   // }
 
   // custom routing here
   switch (pathname) {
-    case '/database':
-      const { text, params } = await req.json();
-      const result = await query(text, params);
-      // console.log({ result });
-      return new Response(JSON.stringify(result), {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-      });
+    case '/database/query': {
+      try {
+        const { text, params } = await req.json();
+        const result = await query(text, params);
+        return new Response(JSON.stringify(result), {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+        });
+      } catch (error) {
+        return new Response(JSON.stringify(error), {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+          status: 500,
+        });
+      }
+    }
   }
 }
 

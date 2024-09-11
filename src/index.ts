@@ -9,6 +9,16 @@ import { NodeRef } from './lib/ericchase/Web API/Node_Utility.js';
 // const db_query = DatabaseDriver.getNeon(<insert a valid connection string>);
 const db_query = DatabaseDriver.getLocalhost();
 
+async function DatabaseConnected(): Promise<boolean> {
+  try {
+    const q = `SELECT 1`;
+    await db_query(q, []);
+    return true;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function CreateTable(name: string): Promise<void> {
   const q = `
       CREATE TABLE ${name} (
@@ -33,19 +43,23 @@ async function TableExists(name: string): Promise<boolean> {
 }
 
 //                                                                          \\
+//
+// Database Functions
 
-async function EnsureTableExists(name: string): Promise<boolean> {
+async function EnsureTableExists(name: string): Promise<{ created: boolean; exists: boolean }> {
   try {
     if ((await TableExists(name)) === true) {
-      return true;
+      return { created: false, exists: true };
     } else {
       await CreateTable(name);
-      return (await TableExists(name)) === true;
+      if ((await TableExists(name)) === true) {
+        return { created: true, exists: true };
+      }
     }
   } catch (error) {
     ConsoleError(error);
   }
-  return false;
+  return { created: false, exists: false };
 }
 
 //                                                                          \\
@@ -73,9 +87,19 @@ class Page {
 
 const page = new Page();
 
-const tableName = 'test';
-if (await EnsureTableExists(tableName)) {
-  page.addMessage('Table exists.');
-} else {
-  page.addMessage('Is server running?');
+try {
+  if (await DatabaseConnected()) {
+    const tableName = 'test';
+    const { created, exists } = await EnsureTableExists(tableName);
+    if (created) {
+      page.addMessage('Table created.');
+    } else if (exists) {
+      page.addMessage('Table exists.');
+    } else {
+      page.addMessage('Table creation failed.');
+    }
+  }
+} catch (error: any) {
+  page.addMessage(error);
+  page.addMessage('Is server running? Check api endpoint.');
 }
