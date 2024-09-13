@@ -1,18 +1,19 @@
 import { neon } from '@neondatabase/serverless';
 
-async function localhost_query(text: string, params: any[]): Promise<any> {
-  const local_address = 'http://127.0.0.1:8000';
-  return (
-    await fetch(local_address + '/database', {
-      method: 'POST',
-      body: JSON.stringify({ text, params }),
-    })
-  ).json();
+async function localhost_query(address: string, text: string, params: any[]): Promise<any> {
+  const response = await fetch(address + '/database/query', {
+    method: 'POST',
+    body: JSON.stringify({ text, params }),
+  });
+  if (response.status < 200 || response.status > 299) {
+    throw await response.json();
+  }
+  return await response.json();
 }
 
 export const DatabaseDriver = {
-  getLocalhost() {
-    return localhost_query;
+  getLocalhost(address: string) {
+    return localhost_query.bind(localhost_query, address);
   },
   getNeon(connection_string: string) {
     return neon(connection_string);
