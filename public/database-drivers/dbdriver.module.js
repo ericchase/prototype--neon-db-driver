@@ -10,7 +10,11 @@ function Ge(r) {
     c = 1541459225,
     h = 0,
     l = 0,
-    d = [1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298],
+    d = [
+      1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349,
+      2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571,
+      1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298,
+    ],
     b = a((A, w) => (A >>> w) | (A << (32 - w)), 'rrot'),
     C = new Uint32Array(64),
     B = new Uint8Array(64),
@@ -54,7 +58,41 @@ function Ge(r) {
       let A = h * 8;
       (B[l++] = (A / 1099511627776) & 255), (B[l++] = (A / 4294967296) & 255), (B[l++] = A >>> 24), (B[l++] = (A >>> 16) & 255), (B[l++] = (A >>> 8) & 255), (B[l++] = A & 255), W();
       let w = new Uint8Array(32);
-      return (w[0] = e >>> 24), (w[1] = (e >>> 16) & 255), (w[2] = (e >>> 8) & 255), (w[3] = e & 255), (w[4] = t >>> 24), (w[5] = (t >>> 16) & 255), (w[6] = (t >>> 8) & 255), (w[7] = t & 255), (w[8] = n >>> 24), (w[9] = (n >>> 16) & 255), (w[10] = (n >>> 8) & 255), (w[11] = n & 255), (w[12] = i >>> 24), (w[13] = (i >>> 16) & 255), (w[14] = (i >>> 8) & 255), (w[15] = i & 255), (w[16] = s >>> 24), (w[17] = (s >>> 16) & 255), (w[18] = (s >>> 8) & 255), (w[19] = s & 255), (w[20] = o >>> 24), (w[21] = (o >>> 16) & 255), (w[22] = (o >>> 8) & 255), (w[23] = o & 255), (w[24] = u >>> 24), (w[25] = (u >>> 16) & 255), (w[26] = (u >>> 8) & 255), (w[27] = u & 255), (w[28] = c >>> 24), (w[29] = (c >>> 16) & 255), (w[30] = (c >>> 8) & 255), (w[31] = c & 255), w;
+      return (
+        (w[0] = e >>> 24),
+        (w[1] = (e >>> 16) & 255),
+        (w[2] = (e >>> 8) & 255),
+        (w[3] = e & 255),
+        (w[4] = t >>> 24),
+        (w[5] = (t >>> 16) & 255),
+        (w[6] = (t >>> 8) & 255),
+        (w[7] = t & 255),
+        (w[8] = n >>> 24),
+        (w[9] = (n >>> 16) & 255),
+        (w[10] = (n >>> 8) & 255),
+        (w[11] = n & 255),
+        (w[12] = i >>> 24),
+        (w[13] = (i >>> 16) & 255),
+        (w[14] = (i >>> 8) & 255),
+        (w[15] = i & 255),
+        (w[16] = s >>> 24),
+        (w[17] = (s >>> 16) & 255),
+        (w[18] = (s >>> 8) & 255),
+        (w[19] = s & 255),
+        (w[20] = o >>> 24),
+        (w[21] = (o >>> 16) & 255),
+        (w[22] = (o >>> 8) & 255),
+        (w[23] = o & 255),
+        (w[24] = u >>> 24),
+        (w[25] = (u >>> 16) & 255),
+        (w[26] = (u >>> 8) & 255),
+        (w[27] = u & 255),
+        (w[28] = c >>> 24),
+        (w[29] = (c >>> 16) & 255),
+        (w[30] = (c >>> 8) & 255),
+        (w[31] = c & 255),
+        w
+      );
     }, 'digest');
   return r === undefined ? { add: X, digest: de } : (X(r), de());
 }
@@ -187,7 +225,14 @@ function Ys(r, { arrayMode: e, fullResults: t, fetchOptions: n, isolationLevel: 
       he = i,
       ye = s,
       xe = o;
-    P !== undefined && (P.fetchOptions !== undefined && (ee = { ...ee, ...P.fetchOptions }), P.arrayMode !== undefined && (R = P.arrayMode), P.fullResults !== undefined && (G = P.fullResults), P.isolationLevel !== undefined && (he = P.isolationLevel), P.readOnly !== undefined && (ye = P.readOnly), P.deferrable !== undefined && (xe = P.deferrable)), w !== undefined && !Array.isArray(w) && w.fetchOptions !== undefined && (ee = { ...ee, ...w.fetchOptions });
+    P !== undefined &&
+      (P.fetchOptions !== undefined && (ee = { ...ee, ...P.fetchOptions }),
+      P.arrayMode !== undefined && (R = P.arrayMode),
+      P.fullResults !== undefined && (G = P.fullResults),
+      P.isolationLevel !== undefined && (he = P.isolationLevel),
+      P.readOnly !== undefined && (ye = P.readOnly),
+      P.deferrable !== undefined && (xe = P.deferrable)),
+      w !== undefined && !Array.isArray(w) && w.fetchOptions !== undefined && (ee = { ...ee, ...w.fetchOptions });
     let me = { 'Neon-Connection-String': r, 'Neon-Raw-Text-Output': 'true', 'Neon-Array-Mode': 'true' };
     Array.isArray(A) && (he !== undefined && (me['Neon-Batch-Isolation-Level'] = he), ye !== undefined && (me['Neon-Batch-Read-Only'] = String(ye)), xe !== undefined && (me['Neon-Batch-Deferrable'] = String(xe)));
     let se;
@@ -390,7 +435,18 @@ var Pn = I((Bt) => {
       C = n ? 0 : s - 1,
       B = n ? 1 : -1,
       W = e < 0 || (e === 0 && 1 / e < 0) ? 1 : 0;
-    for (e = Math.abs(e), isNaN(e) || e === 1 / 0 ? ((u = isNaN(e) ? 1 : 0), (o = l)) : ((o = Math.floor(Math.log(e) / Math.LN2)), e * (c = Math.pow(2, -o)) < 1 && (o--, (c *= 2)), o + d >= 1 ? (e += b / c) : (e += b * Math.pow(2, 1 - d)), e * c >= 2 && (o++, (c /= 2)), o + d >= l ? ((u = 0), (o = l)) : o + d >= 1 ? ((u = (e * c - 1) * Math.pow(2, i)), (o = o + d)) : ((u = e * Math.pow(2, d - 1) * Math.pow(2, i)), (o = 0))); i >= 8; r[t + C] = u & 255, C += B, u /= 256, i -= 8);
+    for (
+      e = Math.abs(e),
+        isNaN(e) || e === 1 / 0
+          ? ((u = isNaN(e) ? 1 : 0), (o = l))
+          : ((o = Math.floor(Math.log(e) / Math.LN2)),
+            e * (c = Math.pow(2, -o)) < 1 && (o--, (c *= 2)),
+            o + d >= 1 ? (e += b / c) : (e += b * Math.pow(2, 1 - d)),
+            e * c >= 2 && (o++, (c /= 2)),
+            o + d >= l ? ((u = 0), (o = l)) : o + d >= 1 ? ((u = (e * c - 1) * Math.pow(2, i)), (o = o + d)) : ((u = e * Math.pow(2, d - 1) * Math.pow(2, i)), (o = 0)));
+      i >= 8;
+      r[t + C] = u & 255, C += B, u /= 256, i -= 8
+    );
     for (o = (o << i) | u, h += i; h > 0; r[t + C] = o & 255, C += B, o /= 256, h -= 8);
     r[t + C - B] |= W * 128;
   };
@@ -1164,7 +1220,21 @@ var $n = I((Le) => {
     return Wn(this, e, t, false, n);
   }, 'writeFloatBE');
   function jn(r, e, t, n, i) {
-    return (e = +e), (t = t >>> 0), i || Qn(r, e, t, 8, 179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, -179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), Pe.write(r, e, t, n, 52, 8), t + 8;
+    return (
+      (e = +e),
+      (t = t >>> 0),
+      i ||
+        Qn(
+          r,
+          e,
+          t,
+          8,
+          179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+          -179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+        ),
+      Pe.write(r, e, t, n, 52, 8),
+      t + 8
+    );
   }
   a(jn, 'writeDouble');
   f.prototype.writeDoubleLE = a(function (e, t, n) {
@@ -1689,7 +1759,138 @@ var ii = z(() => {
         i = e[1],
         s = e[2],
         o = e[3];
-      (n += (((i & s) | (~i & o)) + t[0] - 680876936) | 0), (n = (((n << 7) | (n >>> 25)) + i) | 0), (o += (((n & i) | (~n & s)) + t[1] - 389564586) | 0), (o = (((o << 12) | (o >>> 20)) + n) | 0), (s += (((o & n) | (~o & i)) + t[2] + 606105819) | 0), (s = (((s << 17) | (s >>> 15)) + o) | 0), (i += (((s & o) | (~s & n)) + t[3] - 1044525330) | 0), (i = (((i << 22) | (i >>> 10)) + s) | 0), (n += (((i & s) | (~i & o)) + t[4] - 176418897) | 0), (n = (((n << 7) | (n >>> 25)) + i) | 0), (o += (((n & i) | (~n & s)) + t[5] + 1200080426) | 0), (o = (((o << 12) | (o >>> 20)) + n) | 0), (s += (((o & n) | (~o & i)) + t[6] - 1473231341) | 0), (s = (((s << 17) | (s >>> 15)) + o) | 0), (i += (((s & o) | (~s & n)) + t[7] - 45705983) | 0), (i = (((i << 22) | (i >>> 10)) + s) | 0), (n += (((i & s) | (~i & o)) + t[8] + 1770035416) | 0), (n = (((n << 7) | (n >>> 25)) + i) | 0), (o += (((n & i) | (~n & s)) + t[9] - 1958414417) | 0), (o = (((o << 12) | (o >>> 20)) + n) | 0), (s += (((o & n) | (~o & i)) + t[10] - 42063) | 0), (s = (((s << 17) | (s >>> 15)) + o) | 0), (i += (((s & o) | (~s & n)) + t[11] - 1990404162) | 0), (i = (((i << 22) | (i >>> 10)) + s) | 0), (n += (((i & s) | (~i & o)) + t[12] + 1804603682) | 0), (n = (((n << 7) | (n >>> 25)) + i) | 0), (o += (((n & i) | (~n & s)) + t[13] - 40341101) | 0), (o = (((o << 12) | (o >>> 20)) + n) | 0), (s += (((o & n) | (~o & i)) + t[14] - 1502002290) | 0), (s = (((s << 17) | (s >>> 15)) + o) | 0), (i += (((s & o) | (~s & n)) + t[15] + 1236535329) | 0), (i = (((i << 22) | (i >>> 10)) + s) | 0), (n += (((i & o) | (s & ~o)) + t[1] - 165796510) | 0), (n = (((n << 5) | (n >>> 27)) + i) | 0), (o += (((n & s) | (i & ~s)) + t[6] - 1069501632) | 0), (o = (((o << 9) | (o >>> 23)) + n) | 0), (s += (((o & i) | (n & ~i)) + t[11] + 643717713) | 0), (s = (((s << 14) | (s >>> 18)) + o) | 0), (i += (((s & n) | (o & ~n)) + t[0] - 373897302) | 0), (i = (((i << 20) | (i >>> 12)) + s) | 0), (n += (((i & o) | (s & ~o)) + t[5] - 701558691) | 0), (n = (((n << 5) | (n >>> 27)) + i) | 0), (o += (((n & s) | (i & ~s)) + t[10] + 38016083) | 0), (o = (((o << 9) | (o >>> 23)) + n) | 0), (s += (((o & i) | (n & ~i)) + t[15] - 660478335) | 0), (s = (((s << 14) | (s >>> 18)) + o) | 0), (i += (((s & n) | (o & ~n)) + t[4] - 405537848) | 0), (i = (((i << 20) | (i >>> 12)) + s) | 0), (n += (((i & o) | (s & ~o)) + t[9] + 568446438) | 0), (n = (((n << 5) | (n >>> 27)) + i) | 0), (o += (((n & s) | (i & ~s)) + t[14] - 1019803690) | 0), (o = (((o << 9) | (o >>> 23)) + n) | 0), (s += (((o & i) | (n & ~i)) + t[3] - 187363961) | 0), (s = (((s << 14) | (s >>> 18)) + o) | 0), (i += (((s & n) | (o & ~n)) + t[8] + 1163531501) | 0), (i = (((i << 20) | (i >>> 12)) + s) | 0), (n += (((i & o) | (s & ~o)) + t[13] - 1444681467) | 0), (n = (((n << 5) | (n >>> 27)) + i) | 0), (o += (((n & s) | (i & ~s)) + t[2] - 51403784) | 0), (o = (((o << 9) | (o >>> 23)) + n) | 0), (s += (((o & i) | (n & ~i)) + t[7] + 1735328473) | 0), (s = (((s << 14) | (s >>> 18)) + o) | 0), (i += (((s & n) | (o & ~n)) + t[12] - 1926607734) | 0), (i = (((i << 20) | (i >>> 12)) + s) | 0), (n += ((i ^ s ^ o) + t[5] - 378558) | 0), (n = (((n << 4) | (n >>> 28)) + i) | 0), (o += ((n ^ i ^ s) + t[8] - 2022574463) | 0), (o = (((o << 11) | (o >>> 21)) + n) | 0), (s += ((o ^ n ^ i) + t[11] + 1839030562) | 0), (s = (((s << 16) | (s >>> 16)) + o) | 0), (i += ((s ^ o ^ n) + t[14] - 35309556) | 0), (i = (((i << 23) | (i >>> 9)) + s) | 0), (n += ((i ^ s ^ o) + t[1] - 1530992060) | 0), (n = (((n << 4) | (n >>> 28)) + i) | 0), (o += ((n ^ i ^ s) + t[4] + 1272893353) | 0), (o = (((o << 11) | (o >>> 21)) + n) | 0), (s += ((o ^ n ^ i) + t[7] - 155497632) | 0), (s = (((s << 16) | (s >>> 16)) + o) | 0), (i += ((s ^ o ^ n) + t[10] - 1094730640) | 0), (i = (((i << 23) | (i >>> 9)) + s) | 0), (n += ((i ^ s ^ o) + t[13] + 681279174) | 0), (n = (((n << 4) | (n >>> 28)) + i) | 0), (o += ((n ^ i ^ s) + t[0] - 358537222) | 0), (o = (((o << 11) | (o >>> 21)) + n) | 0), (s += ((o ^ n ^ i) + t[3] - 722521979) | 0), (s = (((s << 16) | (s >>> 16)) + o) | 0), (i += ((s ^ o ^ n) + t[6] + 76029189) | 0), (i = (((i << 23) | (i >>> 9)) + s) | 0), (n += ((i ^ s ^ o) + t[9] - 640364487) | 0), (n = (((n << 4) | (n >>> 28)) + i) | 0), (o += ((n ^ i ^ s) + t[12] - 421815835) | 0), (o = (((o << 11) | (o >>> 21)) + n) | 0), (s += ((o ^ n ^ i) + t[15] + 530742520) | 0), (s = (((s << 16) | (s >>> 16)) + o) | 0), (i += ((s ^ o ^ n) + t[2] - 995338651) | 0), (i = (((i << 23) | (i >>> 9)) + s) | 0), (n += ((s ^ (i | ~o)) + t[0] - 198630844) | 0), (n = (((n << 6) | (n >>> 26)) + i) | 0), (o += ((i ^ (n | ~s)) + t[7] + 1126891415) | 0), (o = (((o << 10) | (o >>> 22)) + n) | 0), (s += ((n ^ (o | ~i)) + t[14] - 1416354905) | 0), (s = (((s << 15) | (s >>> 17)) + o) | 0), (i += ((o ^ (s | ~n)) + t[5] - 57434055) | 0), (i = (((i << 21) | (i >>> 11)) + s) | 0), (n += ((s ^ (i | ~o)) + t[12] + 1700485571) | 0), (n = (((n << 6) | (n >>> 26)) + i) | 0), (o += ((i ^ (n | ~s)) + t[3] - 1894986606) | 0), (o = (((o << 10) | (o >>> 22)) + n) | 0), (s += ((n ^ (o | ~i)) + t[10] - 1051523) | 0), (s = (((s << 15) | (s >>> 17)) + o) | 0), (i += ((o ^ (s | ~n)) + t[1] - 2054922799) | 0), (i = (((i << 21) | (i >>> 11)) + s) | 0), (n += ((s ^ (i | ~o)) + t[8] + 1873313359) | 0), (n = (((n << 6) | (n >>> 26)) + i) | 0), (o += ((i ^ (n | ~s)) + t[15] - 30611744) | 0), (o = (((o << 10) | (o >>> 22)) + n) | 0), (s += ((n ^ (o | ~i)) + t[6] - 1560198380) | 0), (s = (((s << 15) | (s >>> 17)) + o) | 0), (i += ((o ^ (s | ~n)) + t[13] + 1309151649) | 0), (i = (((i << 21) | (i >>> 11)) + s) | 0), (n += ((s ^ (i | ~o)) + t[4] - 145523070) | 0), (n = (((n << 6) | (n >>> 26)) + i) | 0), (o += ((i ^ (n | ~s)) + t[11] - 1120210379) | 0), (o = (((o << 10) | (o >>> 22)) + n) | 0), (s += ((n ^ (o | ~i)) + t[2] + 718787259) | 0), (s = (((s << 15) | (s >>> 17)) + o) | 0), (i += ((o ^ (s | ~n)) + t[9] - 343485551) | 0), (i = (((i << 21) | (i >>> 11)) + s) | 0), (e[0] = (n + e[0]) | 0), (e[1] = (i + e[1]) | 0), (e[2] = (s + e[2]) | 0), (e[3] = (o + e[3]) | 0);
+      (n += (((i & s) | (~i & o)) + t[0] - 680876936) | 0),
+        (n = (((n << 7) | (n >>> 25)) + i) | 0),
+        (o += (((n & i) | (~n & s)) + t[1] - 389564586) | 0),
+        (o = (((o << 12) | (o >>> 20)) + n) | 0),
+        (s += (((o & n) | (~o & i)) + t[2] + 606105819) | 0),
+        (s = (((s << 17) | (s >>> 15)) + o) | 0),
+        (i += (((s & o) | (~s & n)) + t[3] - 1044525330) | 0),
+        (i = (((i << 22) | (i >>> 10)) + s) | 0),
+        (n += (((i & s) | (~i & o)) + t[4] - 176418897) | 0),
+        (n = (((n << 7) | (n >>> 25)) + i) | 0),
+        (o += (((n & i) | (~n & s)) + t[5] + 1200080426) | 0),
+        (o = (((o << 12) | (o >>> 20)) + n) | 0),
+        (s += (((o & n) | (~o & i)) + t[6] - 1473231341) | 0),
+        (s = (((s << 17) | (s >>> 15)) + o) | 0),
+        (i += (((s & o) | (~s & n)) + t[7] - 45705983) | 0),
+        (i = (((i << 22) | (i >>> 10)) + s) | 0),
+        (n += (((i & s) | (~i & o)) + t[8] + 1770035416) | 0),
+        (n = (((n << 7) | (n >>> 25)) + i) | 0),
+        (o += (((n & i) | (~n & s)) + t[9] - 1958414417) | 0),
+        (o = (((o << 12) | (o >>> 20)) + n) | 0),
+        (s += (((o & n) | (~o & i)) + t[10] - 42063) | 0),
+        (s = (((s << 17) | (s >>> 15)) + o) | 0),
+        (i += (((s & o) | (~s & n)) + t[11] - 1990404162) | 0),
+        (i = (((i << 22) | (i >>> 10)) + s) | 0),
+        (n += (((i & s) | (~i & o)) + t[12] + 1804603682) | 0),
+        (n = (((n << 7) | (n >>> 25)) + i) | 0),
+        (o += (((n & i) | (~n & s)) + t[13] - 40341101) | 0),
+        (o = (((o << 12) | (o >>> 20)) + n) | 0),
+        (s += (((o & n) | (~o & i)) + t[14] - 1502002290) | 0),
+        (s = (((s << 17) | (s >>> 15)) + o) | 0),
+        (i += (((s & o) | (~s & n)) + t[15] + 1236535329) | 0),
+        (i = (((i << 22) | (i >>> 10)) + s) | 0),
+        (n += (((i & o) | (s & ~o)) + t[1] - 165796510) | 0),
+        (n = (((n << 5) | (n >>> 27)) + i) | 0),
+        (o += (((n & s) | (i & ~s)) + t[6] - 1069501632) | 0),
+        (o = (((o << 9) | (o >>> 23)) + n) | 0),
+        (s += (((o & i) | (n & ~i)) + t[11] + 643717713) | 0),
+        (s = (((s << 14) | (s >>> 18)) + o) | 0),
+        (i += (((s & n) | (o & ~n)) + t[0] - 373897302) | 0),
+        (i = (((i << 20) | (i >>> 12)) + s) | 0),
+        (n += (((i & o) | (s & ~o)) + t[5] - 701558691) | 0),
+        (n = (((n << 5) | (n >>> 27)) + i) | 0),
+        (o += (((n & s) | (i & ~s)) + t[10] + 38016083) | 0),
+        (o = (((o << 9) | (o >>> 23)) + n) | 0),
+        (s += (((o & i) | (n & ~i)) + t[15] - 660478335) | 0),
+        (s = (((s << 14) | (s >>> 18)) + o) | 0),
+        (i += (((s & n) | (o & ~n)) + t[4] - 405537848) | 0),
+        (i = (((i << 20) | (i >>> 12)) + s) | 0),
+        (n += (((i & o) | (s & ~o)) + t[9] + 568446438) | 0),
+        (n = (((n << 5) | (n >>> 27)) + i) | 0),
+        (o += (((n & s) | (i & ~s)) + t[14] - 1019803690) | 0),
+        (o = (((o << 9) | (o >>> 23)) + n) | 0),
+        (s += (((o & i) | (n & ~i)) + t[3] - 187363961) | 0),
+        (s = (((s << 14) | (s >>> 18)) + o) | 0),
+        (i += (((s & n) | (o & ~n)) + t[8] + 1163531501) | 0),
+        (i = (((i << 20) | (i >>> 12)) + s) | 0),
+        (n += (((i & o) | (s & ~o)) + t[13] - 1444681467) | 0),
+        (n = (((n << 5) | (n >>> 27)) + i) | 0),
+        (o += (((n & s) | (i & ~s)) + t[2] - 51403784) | 0),
+        (o = (((o << 9) | (o >>> 23)) + n) | 0),
+        (s += (((o & i) | (n & ~i)) + t[7] + 1735328473) | 0),
+        (s = (((s << 14) | (s >>> 18)) + o) | 0),
+        (i += (((s & n) | (o & ~n)) + t[12] - 1926607734) | 0),
+        (i = (((i << 20) | (i >>> 12)) + s) | 0),
+        (n += ((i ^ s ^ o) + t[5] - 378558) | 0),
+        (n = (((n << 4) | (n >>> 28)) + i) | 0),
+        (o += ((n ^ i ^ s) + t[8] - 2022574463) | 0),
+        (o = (((o << 11) | (o >>> 21)) + n) | 0),
+        (s += ((o ^ n ^ i) + t[11] + 1839030562) | 0),
+        (s = (((s << 16) | (s >>> 16)) + o) | 0),
+        (i += ((s ^ o ^ n) + t[14] - 35309556) | 0),
+        (i = (((i << 23) | (i >>> 9)) + s) | 0),
+        (n += ((i ^ s ^ o) + t[1] - 1530992060) | 0),
+        (n = (((n << 4) | (n >>> 28)) + i) | 0),
+        (o += ((n ^ i ^ s) + t[4] + 1272893353) | 0),
+        (o = (((o << 11) | (o >>> 21)) + n) | 0),
+        (s += ((o ^ n ^ i) + t[7] - 155497632) | 0),
+        (s = (((s << 16) | (s >>> 16)) + o) | 0),
+        (i += ((s ^ o ^ n) + t[10] - 1094730640) | 0),
+        (i = (((i << 23) | (i >>> 9)) + s) | 0),
+        (n += ((i ^ s ^ o) + t[13] + 681279174) | 0),
+        (n = (((n << 4) | (n >>> 28)) + i) | 0),
+        (o += ((n ^ i ^ s) + t[0] - 358537222) | 0),
+        (o = (((o << 11) | (o >>> 21)) + n) | 0),
+        (s += ((o ^ n ^ i) + t[3] - 722521979) | 0),
+        (s = (((s << 16) | (s >>> 16)) + o) | 0),
+        (i += ((s ^ o ^ n) + t[6] + 76029189) | 0),
+        (i = (((i << 23) | (i >>> 9)) + s) | 0),
+        (n += ((i ^ s ^ o) + t[9] - 640364487) | 0),
+        (n = (((n << 4) | (n >>> 28)) + i) | 0),
+        (o += ((n ^ i ^ s) + t[12] - 421815835) | 0),
+        (o = (((o << 11) | (o >>> 21)) + n) | 0),
+        (s += ((o ^ n ^ i) + t[15] + 530742520) | 0),
+        (s = (((s << 16) | (s >>> 16)) + o) | 0),
+        (i += ((s ^ o ^ n) + t[2] - 995338651) | 0),
+        (i = (((i << 23) | (i >>> 9)) + s) | 0),
+        (n += ((s ^ (i | ~o)) + t[0] - 198630844) | 0),
+        (n = (((n << 6) | (n >>> 26)) + i) | 0),
+        (o += ((i ^ (n | ~s)) + t[7] + 1126891415) | 0),
+        (o = (((o << 10) | (o >>> 22)) + n) | 0),
+        (s += ((n ^ (o | ~i)) + t[14] - 1416354905) | 0),
+        (s = (((s << 15) | (s >>> 17)) + o) | 0),
+        (i += ((o ^ (s | ~n)) + t[5] - 57434055) | 0),
+        (i = (((i << 21) | (i >>> 11)) + s) | 0),
+        (n += ((s ^ (i | ~o)) + t[12] + 1700485571) | 0),
+        (n = (((n << 6) | (n >>> 26)) + i) | 0),
+        (o += ((i ^ (n | ~s)) + t[3] - 1894986606) | 0),
+        (o = (((o << 10) | (o >>> 22)) + n) | 0),
+        (s += ((n ^ (o | ~i)) + t[10] - 1051523) | 0),
+        (s = (((s << 15) | (s >>> 17)) + o) | 0),
+        (i += ((o ^ (s | ~n)) + t[1] - 2054922799) | 0),
+        (i = (((i << 21) | (i >>> 11)) + s) | 0),
+        (n += ((s ^ (i | ~o)) + t[8] + 1873313359) | 0),
+        (n = (((n << 6) | (n >>> 26)) + i) | 0),
+        (o += ((i ^ (n | ~s)) + t[15] - 30611744) | 0),
+        (o = (((o << 10) | (o >>> 22)) + n) | 0),
+        (s += ((n ^ (o | ~i)) + t[6] - 1560198380) | 0),
+        (s = (((s << 15) | (s >>> 17)) + o) | 0),
+        (i += ((o ^ (s | ~n)) + t[13] + 1309151649) | 0),
+        (i = (((i << 21) | (i >>> 11)) + s) | 0),
+        (n += ((s ^ (i | ~o)) + t[4] - 145523070) | 0),
+        (n = (((n << 6) | (n >>> 26)) + i) | 0),
+        (o += ((i ^ (n | ~s)) + t[11] - 1120210379) | 0),
+        (o = (((o << 10) | (o >>> 22)) + n) | 0),
+        (s += ((n ^ (o | ~i)) + t[2] + 718787259) | 0),
+        (s = (((s << 15) | (s >>> 17)) + o) | 0),
+        (i += ((o ^ (s | ~n)) + t[9] - 343485551) | 0),
+        (i = (((i << 21) | (i >>> 11)) + s) | 0),
+        (e[0] = (n + e[0]) | 0),
+        (e[1] = (i + e[1]) | 0),
+        (e[2] = (s + e[2]) | 0),
+        (e[3] = (o + e[3]) | 0);
     }
     start() {
       return (this._dataLength = 0), (this._bufferLength = 0), this._state.set(O2.stateIdentity), this;
@@ -2103,7 +2304,50 @@ var Ei = I((Lh, vi) => {
       return (s.radius = parseFloat(t)), s;
     }, 'parseCircle'),
     Ca = a(function (r) {
-      r(20, xi), r(21, Yt), r(23, Yt), r(26, Yt), r(700, parseFloat), r(701, parseFloat), r(16, Si), r(1082, ct), r(1114, ct), r(1184, ct), r(600, Zt), r(651, re), r(718, Aa), r(1000, ba), r(1001, _a), r(1005, Vt), r(1007, Vt), r(1028, Vt), r(1016, xa), r(1017, va), r(1021, Kt), r(1022, Kt), r(1231, Kt), r(1014, re), r(1015, re), r(1008, re), r(1009, re), r(1040, re), r(1041, re), r(1115, zt), r(1182, zt), r(1185, zt), r(1186, wi), r(1187, Ea), r(17, bi), r(114, JSON.parse.bind(JSON)), r(3802, JSON.parse.bind(JSON)), r(199, gi), r(3807, gi), r(3907, re), r(2951, re), r(791, re), r(1183, re), r(1270, re);
+      r(20, xi),
+        r(21, Yt),
+        r(23, Yt),
+        r(26, Yt),
+        r(700, parseFloat),
+        r(701, parseFloat),
+        r(16, Si),
+        r(1082, ct),
+        r(1114, ct),
+        r(1184, ct),
+        r(600, Zt),
+        r(651, re),
+        r(718, Aa),
+        r(1000, ba),
+        r(1001, _a),
+        r(1005, Vt),
+        r(1007, Vt),
+        r(1028, Vt),
+        r(1016, xa),
+        r(1017, va),
+        r(1021, Kt),
+        r(1022, Kt),
+        r(1231, Kt),
+        r(1014, re),
+        r(1015, re),
+        r(1008, re),
+        r(1009, re),
+        r(1040, re),
+        r(1041, re),
+        r(1115, zt),
+        r(1182, zt),
+        r(1185, zt),
+        r(1186, wi),
+        r(1187, Ea),
+        r(17, bi),
+        r(114, JSON.parse.bind(JSON)),
+        r(3802, JSON.parse.bind(JSON)),
+        r(199, gi),
+        r(3807, gi),
+        r(3907, re),
+        r(2951, re),
+        r(791, re),
+        r(1183, re),
+        r(1270, re);
     }, 'init');
   vi.exports = { init: Ca };
 });
@@ -2159,7 +2403,7 @@ var Bi = I((Uh, Pi) => {
         }, 'inv'),
         u = 255,
         c = 8 - (t % 8);
-      e < c && ((u = (255 << (8 - e)) & 255), (c = e)), t && (u = u >> t % 8);
+      e < c && ((u = (255 << (8 - e)) & 255), (c = e)), t && (u = u >> (t % 8));
       var h = 0;
       (t % 8) + e >= 8 && (h = i(0, o(r[s]) & u, c));
       for (var l = (e + t) >> 3, d = s + 1; d < l; d++) h = i(h, o(r[d]), 8);
@@ -2725,7 +2969,11 @@ var zi = I((cl, pe) => {
     return t;
   };
   pe.exports.usePgPass = function (r, e) {
-    return Object.prototype.hasOwnProperty.call(m.env, 'PGPASSWORD') ? false : pt ? true : ((e = e || '<unkn>'), xu(r.mode) ? (r.mode & (gu | wu) ? (hr('WARNING: password file "%s" has group or world access; permissions should be u=rw (0600) or less', e), false) : true) : (hr('WARNING: password file "%s" is not a plain file', e), false));
+    return Object.prototype.hasOwnProperty.call(m.env, 'PGPASSWORD')
+      ? false
+      : pt
+        ? true
+        : ((e = e || '<unkn>'), xu(r.mode) ? (r.mode & (gu | wu) ? (hr('WARNING: password file "%s" has group or world access; permissions should be u=rw (0600) or less', e), false) : true) : (hr('WARNING: password file "%s" is not a plain file', e), false));
   };
   var Eu = (pe.exports.match = function (r, e) {
     return ke.slice(0, -1).reduce(function (t, n, i) {
@@ -2878,7 +3126,17 @@ var ns = I((xl, rs) => {
       var o = s.split('/');
       (t.host = decodeURIComponent(o[0])), (s = o.splice(1).join('/'));
     }
-    switch ((s && s.charAt(0) === '/' && (s = s.slice(1) || null), (t.database = s && decodeURI(s)), (t.ssl === 'true' || t.ssl === '1') && (t.ssl = true), t.ssl === '0' && (t.ssl = false), (t.sslcert || t.sslkey || t.sslrootcert || t.sslmode) && (t.ssl = {}), t.sslcert && (t.ssl.cert = dr.readFileSync(t.sslcert).toString()), t.sslkey && (t.ssl.key = dr.readFileSync(t.sslkey).toString()), t.sslrootcert && (t.ssl.ca = dr.readFileSync(t.sslrootcert).toString()), t.sslmode)) {
+    switch (
+      (s && s.charAt(0) === '/' && (s = s.slice(1) || null),
+      (t.database = s && decodeURI(s)),
+      (t.ssl === 'true' || t.ssl === '1') && (t.ssl = true),
+      t.ssl === '0' && (t.ssl = false),
+      (t.sslcert || t.sslkey || t.sslrootcert || t.sslmode) && (t.ssl = {}),
+      t.sslcert && (t.ssl.cert = dr.readFileSync(t.sslcert).toString()),
+      t.sslkey && (t.ssl.key = dr.readFileSync(t.sslkey).toString()),
+      t.sslrootcert && (t.ssl.ca = dr.readFileSync(t.sslrootcert).toString()),
+      t.sslmode)
+    ) {
       case 'disable': {
         t.ssl = false;
         break;
@@ -2966,7 +3224,8 @@ var gt = I((_l, os) => {
         var t = [];
         ne(t, this, 'user'), ne(t, this, 'password'), ne(t, this, 'port'), ne(t, this, 'application_name'), ne(t, this, 'fallback_application_name'), ne(t, this, 'connect_timeout'), ne(t, this, 'options');
         var n = typeof this.ssl == 'object' ? this.ssl : this.ssl ? { sslmode: this.ssl } : {};
-        if ((ne(t, n, 'sslmode'), ne(t, n, 'sslca'), ne(t, n, 'sslkey'), ne(t, n, 'sslcert'), ne(t, n, 'sslrootcert'), this.database && t.push('dbname=' + Ue(this.database)), this.replication && t.push('replication=' + Ue(this.replication)), this.host && t.push('host=' + Ue(this.host)), this.isDomainSocket)) return e(null, t.join(' '));
+        if ((ne(t, n, 'sslmode'), ne(t, n, 'sslca'), ne(t, n, 'sslkey'), ne(t, n, 'sslcert'), ne(t, n, 'sslrootcert'), this.database && t.push('dbname=' + Ue(this.database)), this.replication && t.push('replication=' + Ue(this.replication)), this.host && t.push('host=' + Ue(this.host)), this.isDomainSocket))
+          return e(null, t.join(' '));
         this.client_encoding && t.push('client_encoding=' + Ue(this.client_encoding)),
           Pu.lookup(this.host, function (i, s) {
             return i ? e(i, null) : (t.push('hostaddr=' + Ue(s)), e(null, t.join(' ')));
@@ -3026,7 +3285,23 @@ var ps = I((Bl, fs) => {
     ls = et(),
     xr = class xr2 extends Ru {
       constructor(e, t, n) {
-        super(), (e = ls.normalizeQueryConfig(e, t, n)), (this.text = e.text), (this.values = e.values), (this.rows = e.rows), (this.types = e.types), (this.name = e.name), (this.binary = e.binary), (this.portal = e.portal || ''), (this.callback = e.callback), (this._rowMode = e.rowMode), m.domain && e.callback && (this.callback = m.domain.bind(e.callback)), (this._result = new hs(this._rowMode, this.types)), (this._results = this._result), (this.isPreparedStatement = false), (this._canceledDueToError = false), (this._promise = null);
+        super(),
+          (e = ls.normalizeQueryConfig(e, t, n)),
+          (this.text = e.text),
+          (this.values = e.values),
+          (this.rows = e.rows),
+          (this.types = e.types),
+          (this.name = e.name),
+          (this.binary = e.binary),
+          (this.portal = e.portal || ''),
+          (this.callback = e.callback),
+          (this._rowMode = e.rowMode),
+          m.domain && e.callback && (this.callback = m.domain.bind(e.callback)),
+          (this._result = new hs(this._rowMode, this.types)),
+          (this._results = this._result),
+          (this.isPreparedStatement = false),
+          (this._canceledDueToError = false),
+          (this._promise = null);
       }
       requiresPreparation() {
         return this.name || this.rows ? true : !this.text || !this.values ? false : this.values.length > 0;
@@ -3424,7 +3699,29 @@ var wt = z(() => {
 var Yr = I((T) => {
   p();
   Object.defineProperty(T, '__esModule', { value: true });
-  T.NoticeMessage = T.DataRowMessage = T.CommandCompleteMessage = T.ReadyForQueryMessage = T.NotificationResponseMessage = T.BackendKeyDataMessage = T.AuthenticationMD5Password = T.ParameterStatusMessage = T.ParameterDescriptionMessage = T.RowDescriptionMessage = T.Field = T.CopyResponse = T.CopyDataMessage = T.DatabaseError = T.copyDone = T.emptyQuery = T.replicationStart = T.portalSuspended = T.noData = T.closeComplete = T.bindComplete = T.parseComplete = undefined;
+  T.NoticeMessage =
+    T.DataRowMessage =
+    T.CommandCompleteMessage =
+    T.ReadyForQueryMessage =
+    T.NotificationResponseMessage =
+    T.BackendKeyDataMessage =
+    T.AuthenticationMD5Password =
+    T.ParameterStatusMessage =
+    T.ParameterDescriptionMessage =
+    T.RowDescriptionMessage =
+    T.Field =
+    T.CopyResponse =
+    T.CopyDataMessage =
+    T.DatabaseError =
+    T.copyDone =
+    T.emptyQuery =
+    T.replicationStart =
+    T.portalSuspended =
+    T.noData =
+    T.closeComplete =
+    T.bindComplete =
+    T.parseComplete =
+      undefined;
   T.parseComplete = { name: 'parseComplete', length: 5 };
   T.bindComplete = { name: 'bindComplete', length: 5 };
   T.closeComplete = { name: 'closeComplete', length: 5 };
@@ -3965,7 +4262,9 @@ var vs = I((Et) => {
         for (; o !== '\0'; ) (s[o] = this.reader.cstring()), (o = this.reader.string(1));
         let u = s.M,
           c = i === 'notice' ? new D.NoticeMessage(t, u) : new D.DatabaseError(u, t, i);
-        return (c.severity = s.S), (c.code = s.C), (c.detail = s.D), (c.hint = s.H), (c.position = s.P), (c.internalPosition = s.p), (c.internalQuery = s.q), (c.where = s.W), (c.schema = s.s), (c.table = s.t), (c.column = s.c), (c.dataType = s.d), (c.constraint = s.n), (c.file = s.F), (c.line = s.L), (c.routine = s.R), c;
+        return (
+          (c.severity = s.S), (c.code = s.C), (c.detail = s.D), (c.hint = s.H), (c.position = s.P), (c.internalPosition = s.p), (c.internalQuery = s.q), (c.where = s.W), (c.schema = s.s), (c.table = s.t), (c.column = s.c), (c.dataType = s.d), (c.constraint = s.n), (c.file = s.F), (c.line = s.L), (c.routine = s.R), c
+        );
       }
     };
   a(on, 'Parser');
@@ -4157,9 +4456,30 @@ var Bs = I((of, Ps) => {
     vc = hn(),
     fn = class fn2 extends mc {
       constructor(e) {
-        super(), (this.connectionParameters = new Sc(e)), (this.user = this.connectionParameters.user), (this.database = this.connectionParameters.database), (this.port = this.connectionParameters.port), (this.host = this.connectionParameters.host), Object.defineProperty(this, 'password', { configurable: true, enumerable: false, writable: true, value: this.connectionParameters.password }), (this.replication = this.connectionParameters.replication);
+        super(),
+          (this.connectionParameters = new Sc(e)),
+          (this.user = this.connectionParameters.user),
+          (this.database = this.connectionParameters.database),
+          (this.port = this.connectionParameters.port),
+          (this.host = this.connectionParameters.host),
+          Object.defineProperty(this, 'password', { configurable: true, enumerable: false, writable: true, value: this.connectionParameters.password }),
+          (this.replication = this.connectionParameters.replication);
         var t = e || {};
-        (this._Promise = t.Promise || S.Promise), (this._types = new bc(t.types)), (this._ending = false), (this._connecting = false), (this._connected = false), (this._connectionError = false), (this._queryable = true), (this.connection = t.connection || new vc({ stream: t.stream, ssl: this.connectionParameters.ssl, keepAlive: t.keepAlive || false, keepAliveInitialDelayMillis: t.keepAliveInitialDelayMillis || 0, encoding: this.connectionParameters.client_encoding || 'utf8' })), (this.queryQueue = []), (this.binary = t.binary || xc.binary), (this.processID = null), (this.secretKey = null), (this.ssl = this.connectionParameters.ssl || false), this.ssl && this.ssl.key && Object.defineProperty(this.ssl, 'key', { enumerable: false }), (this._connectionTimeoutMillis = t.connectionTimeoutMillis || 0);
+        (this._Promise = t.Promise || S.Promise),
+          (this._types = new bc(t.types)),
+          (this._ending = false),
+          (this._connecting = false),
+          (this._connected = false),
+          (this._connectionError = false),
+          (this._queryable = true),
+          (this.connection = t.connection || new vc({ stream: t.stream, ssl: this.connectionParameters.ssl, keepAlive: t.keepAlive || false, keepAliveInitialDelayMillis: t.keepAliveInitialDelayMillis || 0, encoding: this.connectionParameters.client_encoding || 'utf8' })),
+          (this.queryQueue = []),
+          (this.binary = t.binary || xc.binary),
+          (this.processID = null),
+          (this.secretKey = null),
+          (this.ssl = this.connectionParameters.ssl || false),
+          this.ssl && this.ssl.key && Object.defineProperty(this.ssl, 'key', { enumerable: false }),
+          (this._connectionTimeoutMillis = t.connectionTimeoutMillis || 0);
       }
       _errorAllQueries(e) {
         let t = a((n) => {
@@ -4215,7 +4535,25 @@ var Bs = I((of, Ps) => {
         });
       }
       _attachListeners(e) {
-        e.on('authenticationCleartextPassword', this._handleAuthCleartextPassword.bind(this)), e.on('authenticationMD5Password', this._handleAuthMD5Password.bind(this)), e.on('authenticationSASL', this._handleAuthSASL.bind(this)), e.on('authenticationSASLContinue', this._handleAuthSASLContinue.bind(this)), e.on('authenticationSASLFinal', this._handleAuthSASLFinal.bind(this)), e.on('backendKeyData', this._handleBackendKeyData.bind(this)), e.on('error', this._handleErrorEvent.bind(this)), e.on('errorMessage', this._handleErrorMessage.bind(this)), e.on('readyForQuery', this._handleReadyForQuery.bind(this)), e.on('notice', this._handleNotice.bind(this)), e.on('rowDescription', this._handleRowDescription.bind(this)), e.on('dataRow', this._handleDataRow.bind(this)), e.on('portalSuspended', this._handlePortalSuspended.bind(this)), e.on('emptyQuery', this._handleEmptyQuery.bind(this)), e.on('commandComplete', this._handleCommandComplete.bind(this)), e.on('parseComplete', this._handleParseComplete.bind(this)), e.on('copyInResponse', this._handleCopyInResponse.bind(this)), e.on('copyData', this._handleCopyData.bind(this)), e.on('notification', this._handleNotification.bind(this));
+        e.on('authenticationCleartextPassword', this._handleAuthCleartextPassword.bind(this)),
+          e.on('authenticationMD5Password', this._handleAuthMD5Password.bind(this)),
+          e.on('authenticationSASL', this._handleAuthSASL.bind(this)),
+          e.on('authenticationSASLContinue', this._handleAuthSASLContinue.bind(this)),
+          e.on('authenticationSASLFinal', this._handleAuthSASLFinal.bind(this)),
+          e.on('backendKeyData', this._handleBackendKeyData.bind(this)),
+          e.on('error', this._handleErrorEvent.bind(this)),
+          e.on('errorMessage', this._handleErrorMessage.bind(this)),
+          e.on('readyForQuery', this._handleReadyForQuery.bind(this)),
+          e.on('notice', this._handleNotice.bind(this)),
+          e.on('rowDescription', this._handleRowDescription.bind(this)),
+          e.on('dataRow', this._handleDataRow.bind(this)),
+          e.on('portalSuspended', this._handlePortalSuspended.bind(this)),
+          e.on('emptyQuery', this._handleEmptyQuery.bind(this)),
+          e.on('commandComplete', this._handleCommandComplete.bind(this)),
+          e.on('parseComplete', this._handleParseComplete.bind(this)),
+          e.on('copyInResponse', this._handleCopyInResponse.bind(this)),
+          e.on('copyData', this._handleCopyData.bind(this)),
+          e.on('notification', this._handleNotification.bind(this));
       }
       _checkPgPass(e) {
         let t = this.connection;
@@ -4325,7 +4663,15 @@ var Bs = I((of, Ps) => {
         var e = this.connectionParameters,
           t = { user: e.user, database: e.database },
           n = e.application_name || e.fallback_application_name;
-        return n && (t.application_name = n), e.replication && (t.replication = '' + e.replication), e.statement_timeout && (t.statement_timeout = String(parseInt(e.statement_timeout, 10))), e.lock_timeout && (t.lock_timeout = String(parseInt(e.lock_timeout, 10))), e.idle_in_transaction_session_timeout && (t.idle_in_transaction_session_timeout = String(parseInt(e.idle_in_transaction_session_timeout, 10))), e.options && (t.options = e.options), t;
+        return (
+          n && (t.application_name = n),
+          e.replication && (t.replication = '' + e.replication),
+          e.statement_timeout && (t.statement_timeout = String(parseInt(e.statement_timeout, 10))),
+          e.lock_timeout && (t.lock_timeout = String(parseInt(e.lock_timeout, 10))),
+          e.idle_in_transaction_session_timeout && (t.idle_in_transaction_session_timeout = String(parseInt(e.idle_in_transaction_session_timeout, 10))),
+          e.options && (t.options = e.options),
+          t
+        );
       }
       cancel(e, t) {
         if (e.activeQuery === t) {
@@ -4482,7 +4828,25 @@ var Ms = I((cf, Fs) => {
   a(Ac, 'makeIdleListener');
   var gn = class gn2 extends Ec {
     constructor(e, t) {
-      super(), (this.options = Object.assign({}, e)), e != null && 'password' in e && Object.defineProperty(this.options, 'password', { configurable: true, enumerable: false, writable: true, value: e.password }), e != null && e.ssl && e.ssl.key && Object.defineProperty(this.options.ssl, 'key', { enumerable: false }), (this.options.max = this.options.max || this.options.poolSize || 10), (this.options.maxUses = this.options.maxUses || 1 / 0), (this.options.allowExitOnIdle = this.options.allowExitOnIdle || false), (this.options.maxLifetimeSeconds = this.options.maxLifetimeSeconds || 0), (this.log = this.options.log || function () {}), (this.Client = this.options.Client || t || Ct().Client), (this.Promise = this.options.Promise || S.Promise), typeof this.options.idleTimeoutMillis > 'u' && (this.options.idleTimeoutMillis = 1e4), (this._clients = []), (this._idle = []), (this._expired = new WeakSet()), (this._pendingQueue = []), (this._endCallback = undefined), (this.ending = false), (this.ended = false);
+      super(),
+        (this.options = Object.assign({}, e)),
+        e != null && 'password' in e && Object.defineProperty(this.options, 'password', { configurable: true, enumerable: false, writable: true, value: e.password }),
+        e != null && e.ssl && e.ssl.key && Object.defineProperty(this.options.ssl, 'key', { enumerable: false }),
+        (this.options.max = this.options.max || this.options.poolSize || 10),
+        (this.options.maxUses = this.options.maxUses || 1 / 0),
+        (this.options.allowExitOnIdle = this.options.allowExitOnIdle || false),
+        (this.options.maxLifetimeSeconds = this.options.maxLifetimeSeconds || 0),
+        (this.log = this.options.log || function () {}),
+        (this.Client = this.options.Client || t || Ct().Client),
+        (this.Promise = this.options.Promise || S.Promise),
+        typeof this.options.idleTimeoutMillis > 'u' && (this.options.idleTimeoutMillis = 1e4),
+        (this._clients = []),
+        (this._idle = []),
+        (this._expired = new WeakSet()),
+        (this._pendingQueue = []),
+        (this._endCallback = undefined),
+        (this.ending = false),
+        (this.ended = false);
     }
     _isFull() {
       return this._clients.length >= this.options.max;
@@ -5054,10 +5418,16 @@ var En = class En2 extends Tt.Client {
   }
   connect(t) {
     let { neonConfig: n } = this;
-    n.forceDisablePgSSL && (this.ssl = this.connection.ssl = false), this.ssl && n.useSecureWebSocket && console.warn('SSL is enabled for both Postgres (e.g. ?sslmode=require in the connection string + forceDisablePgSSL = false) and the WebSocket tunnel (useSecureWebSocket = true). Double encryption will increase latency and CPU usage. It may be appropriate to disable SSL in the Postgres connection parameters or set forceDisablePgSSL = true.');
+    n.forceDisablePgSSL && (this.ssl = this.connection.ssl = false),
+      this.ssl &&
+        n.useSecureWebSocket &&
+        console.warn(
+          'SSL is enabled for both Postgres (e.g. ?sslmode=require in the connection string + forceDisablePgSSL = false) and the WebSocket tunnel (useSecureWebSocket = true). Double encryption will increase latency and CPU usage. It may be appropriate to disable SSL in the Postgres connection parameters or set forceDisablePgSSL = true.',
+        );
     let i = this.config?.host !== undefined || this.config?.connectionString !== undefined || m.env.PGHOST !== undefined,
       s = m.env.USER ?? m.env.USERNAME;
-    if (!i && this.host === 'localhost' && this.user === s && this.database === s && this.password === null) throw new Error(`No database host or connection string was set, and key parameters have default values (host: localhost, user: ${s}, db: ${s}, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.`);
+    if (!i && this.host === 'localhost' && this.user === s && this.database === s && this.password === null)
+      throw new Error(`No database host or connection string was set, and key parameters have default values (host: localhost, user: ${s}, db: ${s}, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.`);
     let o = super.connect(t),
       u = n.pipelineTLS && this.ssl,
       c = n.pipelineConnect === 'password';
@@ -5176,7 +5546,7 @@ buffer/index.js:
 
 // src/database-drivers/dbdriver.module.ts
 async function localhost_query(address, text, params) {
-  const response = await fetch(address + '/database/query', {
+  const response = await fetch(`${address}/database/query`, {
     method: 'POST',
     body: JSON.stringify({ text, params }),
   });
@@ -5308,5 +5678,5 @@ var DatabaseDriver_Copyright_Notices = {
 };
 export { DatabaseDriver_Copyright_Notices, DatabaseDriver };
 
-//# debugId=4848DF2ADC88888F64756E2164756E21
+//# debugId=78ED2ADE99AE8AC664756E2164756E21
 //# sourceMappingURL=dbdriver.module.js.map
